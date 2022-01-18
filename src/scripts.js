@@ -1,11 +1,23 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
+import { fetchData, getUser } from './fetch';
+import Hotel from '../src/classes/Hotel';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+// global varibles
+let currentCustomer, hotel, rooms, bookings
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+
+// functions
+const onStart = (id) => {
+  return Promise.all([getUser(id), fetchData('rooms'), fetchData('bookings')])
+    .then(data => loadPage(data))
+}
+const loadPage = (data) => {
+  currentCustomer = data[0];
+  rooms = data[1];
+  bookings = data[2];
+  hotel = new Hotel(rooms, bookings);
+  console.log(currentCustomer.id)
+}
+// event listeners
+window.addEventListener('load', onStart(1));
