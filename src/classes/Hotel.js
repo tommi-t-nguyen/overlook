@@ -25,5 +25,24 @@ class Hotel {
     },0)
     return Number(customerTotal.toFixed(2))
   }
+  roomsAvailable(date) {
+    let roomsBooked = this.bookings.reduce((acc,booking) => {
+      if(booking.date === date){
+        acc.push(booking.roomNumber)
+      }
+      return acc
+    },[])
+    let roomsAvailable = this.rooms.reduce((acc,room) => {
+      if(!roomsBooked.includes(room.number)){
+        acc.push(room);
+      }
+      return acc
+    },[]);
+    if(roomsAvailable.length === 0){
+      return `<p>We're sorry there are no rooms available. Please select a different date.</p>`
+    }else {
+    return roomsAvailable
+  }
+}
 }
 export default Hotel;
