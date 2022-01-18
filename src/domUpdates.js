@@ -5,6 +5,9 @@ const domUpdates = {
       <h2 class='total-spent' id='totalSpent'>You have spent $${hotel.findCustomerTotal(currentCustomer.id)} on trips this year.</h2>
     </div>`
   },
+  renderBooking(booking) {
+    return`<p class='booking'>${booking.date} room ${booking.roomNumber} is booked</p>`
+  }
 
 }
 export default domUpdates;
