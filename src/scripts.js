@@ -1,11 +1,13 @@
 import './css/base.scss';
 import { fetchData, getUser } from './fetch';
 import Hotel from '../src/classes/Hotel';
+import domUpdates from './domUpdates'
 
 // global varibles
-let currentCustomer, hotel, rooms, bookings
+let currentCustomer, hotel
 
-
+// query selector
+const welcomeContainer = document.querySelector('#welcomeContainer')
 
 // functions
 const onStart = (id) => {
@@ -14,10 +16,9 @@ const onStart = (id) => {
 }
 const loadPage = (data) => {
   currentCustomer = data[0];
-  rooms = data[1];
-  bookings = data[2];
-  hotel = new Hotel(rooms, bookings);
-  console.log(currentCustomer.id)
+  hotel = new Hotel(data[1].rooms, data[2].bookings);
+  welcomeContainer.innerHTML = domUpdates.renderGreeting(currentCustomer,hotel);
+  
 }
 // event listeners
 window.addEventListener('load', onStart(1));

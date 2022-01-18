@@ -23,7 +23,7 @@ class Hotel {
       }
       return total
     },0)
-    return customerTotal
+    return Number(customerTotal.toFixed(2))
   }
 }
 export default Hotel;
