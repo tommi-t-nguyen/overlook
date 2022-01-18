@@ -32,8 +32,14 @@ describe('Hotel',() => {
   it('Should be able to find customer\'s total', () => {
     expect(hotel.findCustomerTotal(currentCustomer.id)).to.equal(849.54);
     expect(hotel.findCustomerTotal(previousCustomer.id)).to.equal(874.40)
+  });
 
+  it('Should be able to find rooms available on a given date', () => {
+    expect(hotel.roomsAvailable("2022/04/22")).to.deep.equal([rooms[1],rooms[2],rooms[3]]);
+    expect(hotel.roomsAvailable("2022/06/22")).to.equal(`<p>We're sorry there are no rooms available. Please select a different date.</p>`)
   })
+
+
 
 
 
