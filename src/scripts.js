@@ -68,7 +68,8 @@ const bookARoom = (e) => {
     roomNumber: Number(e.target.closest('button').id)
     }
     bookRoomPost(roomToBeBook)
-    .then(response => onStart(5))
+    .then(response => onStart(currentCustomer.id))
+    displayHome()
   }
 }
 
@@ -84,6 +85,10 @@ const displayHome = () => {
 
 
 // event listeners
+bookingMessage.addEventListener('click',  (e) => {
+  bookARoom(e)
+});
+
 bookBtn.addEventListener('click',displayBooking);
 homeBtn.addEventListener('click',displayHome);
 loginForm.addEventListener('submit',(e) => {
