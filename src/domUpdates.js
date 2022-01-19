@@ -2,7 +2,7 @@ const domUpdates = {
   renderGreeting(currentCustomer,hotel) {
     return `<div class='welcome-container' id='welcomeContainer'>
       <h3 class='greeting' id='greeting'> Welcome back, ${currentCustomer.name}!</h3>
-      <h3 class='total-spent' id='totalSpent'>You have spent $${hotel.findCustomerTotal(currentCustomer.id)} on trips this year.</h3>
+      <h3 class='total-spent' id='totalSpent'>You have spent $${hotel.findCustomerTotal(currentCustomer.id)} on rooms.</h3>
     </div>`
   },
   renderBooking(booking) {
