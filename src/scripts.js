@@ -34,6 +34,10 @@ const loadPage = (data) => {
   welcomeContainer.innerHTML = '';
   welcomeContainer.innerHTML += domUpdates.renderGreeting(currentCustomer, hotel);
   currentCustomerBookings = hotel.findCustomerBooking(currentCustomer.id);
+  currentCustomerBookings.sort((a,b) =>{
+    return new Date(b.date) - new Date(a.date)
+  })
+  console.log(currentCustomerBookings);
   loadBookings(currentCustomerBookings);
 }
 
@@ -70,6 +74,7 @@ const bookARoom = (e) => {
     bookRoomPost(roomToBeBook)
     .then(response => onStart(currentCustomer.id))
     displayHome()
+    bookingMessage.innerHTML = `<p class='booking-message' id='bookingMessage'>Select a date to see available rooms!</p>`
   }
 }
 
@@ -102,6 +107,7 @@ loginForm.addEventListener('submit',(e) => {
     navBar.style.display="flex"
     login.style.display="none"
     bookingContainer.style.display="block"
+    e.target.reset()
   }else {
     loginMessage.innerText = 'Incorrect Username or Password. Please try again'
     e.target.reset()
@@ -116,4 +122,5 @@ showRoomsAvailable.addEventListener('submit', (e) => {
   let roomType = formData.get('roomType')
   roomsAvailable = hotel.roomsAvailable(date)
   filterRoom(date, roomType);
+  e.target.reset()
 });
