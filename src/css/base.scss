@@ -1,6 +1,38 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
-
+@import '_mixins';
+@import '_normalize';
 body {
+  height:100vh;
   background: $primary-background;
+}
+nav {
+  background-color: $nav-background;
+  @include flex-row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.main-container{
+  @include flex-column;
+  align-items: center;
+}
+.nav-bar{
+  display: none
+}
+
+#bookingsBoard{
+  display: none;
+}
+
+#bookingPage{
+  display: none;
+}
+.login{
+  height: 100vh;
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+  background: $nav-background;
 }

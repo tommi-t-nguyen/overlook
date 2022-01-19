@@ -8,15 +8,25 @@
 </head>
 <body>
   <nav class='nav-bar'>
-    <h1 class='company-title'>Overlook</h1>
     <div class='welcome-container' id='welcomeContainer'>
-      <h1 class='greeting' id='greeting'> Welcome back,User!</h1>
-      <h2 class='total-spent' id='totalSpent'>You have spent $$$ on rooms.</h2>
+    </div>
+    <div class='nav-button'>
+    <button class='home' id='home'>Home</button>
+    <button class='book' id='book'>Book a room</button>
     </div>
   </nav>
+  <div class='login'>
+    <form class='login' id='login'>
+      <label for='username'>UserName:
+        <input type='text' id='name' name='name'required>
+      <label for='password'>Password:
+        <input type='password' id='password'name='password'required>
+      <button type='submit'class='submit' id='login'>Login</button>
+    </form>
+    <p class='login-message'></p>
+  </div>
   <main class='main-container'>
-    <h3 class='booking-history'>Your Booking History</h3>
-    <section class='customer-bookings-container' id='bookingsBoard' >
+    <section class='customer-bookings-container' id='bookingsBoard'  >
     </section>
     <section class='booking-page' id='bookingPage'>
       <form class='show-rooms-available' id='showRoomsAvailable'>
@@ -35,6 +45,7 @@
       </form>
       <p class='booking-message' id='bookingMessage'>Select a date to see available rooms!</p>
     </section>
+
   </main>
 
 
