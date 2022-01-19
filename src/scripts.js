@@ -90,29 +90,31 @@ const displayHome = () => {
 
 
 // event listeners
+window.addEventListener('load', onStart(5));
+
 bookingMessage.addEventListener('click',  (e) => {
   bookARoom(e)
 });
 
 bookBtn.addEventListener('click',displayBooking);
 homeBtn.addEventListener('click',displayHome);
-loginForm.addEventListener('submit',(e) => {
-  e.preventDefault();
-  const formData = new FormData(e.target);
-  const userName = formData.get('name');
-  let userID = Number(userName.slice(8));
-  const password = formData.get('password');
-  if(userName.slice(0,8) == 'customer' && password == 'overlook2021' && userID < 51){
-    onStart(userID);
-    navBar.style.display="flex"
-    login.style.display="none"
-    bookingContainer.style.display="block"
-    e.target.reset()
-  }else {
-    loginMessage.innerText = 'Incorrect Username or Password. Please try again'
-    e.target.reset()
-  }
-})
+// loginForm.addEventListener('submit',(e) => {
+//   e.preventDefault();
+//   const formData = new FormData(e.target);
+//   const userName = formData.get('name');
+//   let userID = Number(userName.slice(8));
+//   const password = formData.get('password');
+//   if(userName.slice(0,8) == 'customer' && password == 'overlook2021' && userID < 51){
+//     onStart(userID);
+//     navBar.style.display="flex"
+//     login.style.display="none"
+//     bookingContainer.style.display="block"
+//     e.target.reset()
+//   }else {
+//     loginMessage.innerText = 'Incorrect Username or Password. Please try again'
+//     e.target.reset()
+//   }
+// })
 
 showRoomsAvailable.addEventListener('submit', (e) => {
   e.preventDefault();

@@ -19,11 +19,11 @@ nav {
   align-items: center;
 }
 .nav-bar{
-  display: none
+  display: flex
 }
 
 #bookingsBoard{
-  display: none;
+  display: block;
 }
 
 #bookingPage{
@@ -35,4 +35,5 @@ nav {
   align-items: center;
   justify-content: center;
   background: $nav-background;
+  display: none;
 }
