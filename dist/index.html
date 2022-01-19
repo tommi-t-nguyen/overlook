@@ -15,7 +15,25 @@
     </div>
   </nav>
   <main class='main-container'>
-    <section class='customer-bookings-container' id='bookingsBoard'>
+    <h3 class='booking-history'>Your Booking History</h3>
+    <section class='customer-bookings-container' id='bookingsBoard' >
+    </section>
+    <section class='booking-page' id='bookingPage'>
+      <form class='show-rooms-available' id='showRoomsAvailable'>
+        <label for='start-date'>Select A Date:
+        <input type='date' id='startDate' name='date' min='2022-01-18' required>
+        </label>
+        <label for="tag">Room Type:</label>
+         <select id="container" name="roomType" >
+         <option value=""></option>
+         <option value="single room">single room</option>
+         <option value="junior suite">junior suite</option>
+         <option value="suite">suite</option>
+         <option value="residential suite">residential suite</option>
+         </select>
+        <button type='submit'class='submit' id='submit'>Search</button>
+      </form>
+      <p class='booking-message' id='bookingMessage'>Select a date to see available rooms!</p>
     </section>
   </main>
 

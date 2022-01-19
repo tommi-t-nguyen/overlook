@@ -7,7 +7,11 @@ const domUpdates = {
   },
   renderBooking(booking) {
     return`<p class='booking'>${booking.date} room ${booking.roomNumber} is booked</p>`
+  },
+  renderAvailableRooms(room){
+    return`<h3 class='room-number'>Room ${room.number}</h3>
+          <p class='room-description'> A ${room.roomType} with ${room.numBeds} ${room.bedSize} bed(s) at the price of $${room.costPerNight}</p>
+          <button class='book-room' id='${room.number}'>Book Me </button>`
   }
-
 }
 export default domUpdates;
